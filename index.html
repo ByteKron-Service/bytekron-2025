@@ -344,29 +344,33 @@
       </div>
     </div>
   </footer>
-  <script>
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Impede o envio tradicional
-    
-        // Coleta os valores dos campos
-        let name = document.getElementById("name").value;
-        let email = document.getElementById("email").value;
-        let subject = document.getElementById("subject").value;
-        let message = document.getElementById("message").value;
-    
-        // Garante que todos os campos estão preenchidos
-        if (!name || !email || !subject || !message) {
-            alert("Por favor, preencha todos os campos antes de enviar.");
-            return;
-        }
-    
-        // Formata a mensagem para o e-mail
-        let mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Nome: " + name + "\nEmail: " + email + "\n\nMensagem:\n" + message)}`;
-    
-        // Abre o cliente de e-mail do usuário
-        window.location.href = mailtoLink;
-    });
-    </script>
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Impede o envio tradicional
+
+    // Coleta os valores dos campos
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let subject = document.getElementById("subject").value;
+    let message = document.getElementById("message").value;
+
+    // Garante que todos os campos estão preenchidos
+    if (!name || !email || !subject || !message) {
+        alert("Por favor, preencha todos os campos antes de enviar.");
+        return;
+    }
+
+    // E-mail que receberá as mensagens
+    let destinatario = "comercialbytekron@gmail.com";
+
+    // Formata a mensagem para o e-mail
+    let mailtoLink = `mailto:${destinatario}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Nome: " + name + "\nEmail: " + email + "\n\nMensagem:\n" + message)}`;
+
+    // Abre o cliente de e-mail do usuário
+    window.location.href = mailtoLink;
+});
+</script>
+
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
 </body>
 </html>
